@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<Workload>
+	
+	<!-- Owner of the Workload -->
+	<OwnerEmail>suzhang@amd.com</OwnerEmail>
+
+	<!-- Workload Wrapper Version -->
+	<Version>2.10.18</Version>
+	
+	<!-- List of sites where this workload can not be exported -->
+	<RestrictedSites>
+	</RestrictedSites>
+	
+	<!-- Allowed Distribution Audience Internal, NDA, Public (Public would imply NDA and Internal, etc.) -->
+	<Distribution>Internal</Distribution>
+
+	<!-- Nonintrusive checks that must be met in order to run the workload -->
+	<Constraints>
+	</Constraints>
+
+	<!-- Setup script, will get passed the setup parameters -->
+	<Setup timeout="300"></Setup>
+	
+	<SetupParameters>
+		<form id="driverinstall" action="" onsubmit="javascript: return false;">
+		</form>
+	</SetupParameters>
+	
+	<!-- Workload Info to optionally display to the User -->
+	<WorkloadInfo type=""></WorkloadInfo>
+
+	<!-- Single run command (probably a wrapper script), will get passed the full set of parameter name/values; Note:  overall timeout = workload run time + timeout_offset -->
+	<Run timeout_offset="180">run/run.rb</Run>
+	
+	<!-- Full set of all possible parameters for the automation executable -->
+	<RunParameters>
+		<form id="gimp" action="" onsubmit="javascript: return false;">
+
+		<fieldset>
+		</fieldset>
+
+			<div>
+				<input type="submit" />
+			</div>
+			
+			<div>
+				<input type="reset" />
+			</div>
+
+		</form>
+	</RunParameters>
+	
+	<!-- Predefined presets of common parameter combinations; Format the parameters as command line arguments to send to setup or automation executables  -->
+	<Presets>
+	  <Preset value="(Default)">
+			<run>-t 1800</run>
+	  </Preset>
+
+	</Presets>
+	
+	<!-- Compatibile OS listed as key/value pairs; used to filter workloads in the UI; framework can also inforce this check -->
+	<OsCompatibility>
+		<OS>Linux</OS>
+	</OsCompatibility>
+	
+	<!-- Specify if this workload can be run concurrently with other workloads. Allowed values => True or False -->
+	<ConcurrentExecution>False</ConcurrentExecution>
+
+	<!-- Other information the controlling automation framework might need about the test, arranged in key/value pairs; Qualifiers are PPO;VAL;MARGSI;ALL -->
+	<FrameworkDirectives>
+		<Directive name="global-resource-used" team="VAL"></Directive>
+	</FrameworkDirectives>
+
+</Workload>
